@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <title>Poke Dextr</title>
+  </head>
+
+  <body>
+
+    <nav>
+        <div class="nav-wrapper teal" style="padding-left: 10px;">
+            <a href="#!" class="brand-logo">Poke Dextr</a>
+
+            <ul class="right">
+                <li><a href="index.html">Listing</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    <main class="row" >
+        <aside class="col s0 m3 collection" id="listing" style="max-height:600px; overflow-y: scroll;">
+  
+        </aside>
+        <article class="col m9" id="result">
+
+        </article>
+    </main>
+   
+
+    <script>
+
+        const domain = "https://pokedextr.herokuapp.com";
+
+        async function sendRequest(url, method, data){
+            const options = {method};
+            
+            if(data){
+                options.body = JSON.stringify(data);
+                options.headers = {'Content-Type':'application/json'};
+            }
+            let response = await fetch(url, options);
+            return response.json();
+        }
+
+        async function getPokemonDetail(pokemonName){
+            //performs http request to the specified url with the given pokemon name to get pokemon data then pass it to displayPokemonDetail()
+        }
+
+        async function getAllPokemon(){
+            //performs http request to the specified url to get all pokemon data then pass it to displayPokemon()
+        }
+
+        function displayAllPokemon(pokeList){
+           //Renders a list of pokemon links to the page from the pokeList array 
+        }
+
+        function displayPokemonDetail(pokemon){
+          //renders details of the specified pokemon object onto the page
+        }
+
+        getAllPokemon();
+       
+    </script>
+        
+  </body>
+</html>
