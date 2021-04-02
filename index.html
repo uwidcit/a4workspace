@@ -1,74 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-        <title>Poke Dextr</title>
-  </head>
-
-  <body>
-
-    <nav>
-        <div class="nav-wrapper teal" style="padding-left: 10px;">
-            <a href="#!" class="brand-logo">Poke Dextr</a>
-
-            <ul class="right">
-                <li><a href="index.html">Listing</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-
-    <main class="row" >
-        <aside class="col s0 m3 collection" id="listing" style="max-height:600px; overflow-y: scroll;">
   
-        </aside>
-        <article class="col m9" id="result">
+     <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Movies App</title>
 
-        </article>
+  </head>
+  <body>
+    <nav class="purple">
+      <div class="nav-wrapper">
+        
+        <a href="/app" class="brand-logo center">Movies App</a>
+
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+      </div>
+    </nav>
+
+    <ul id="slide-out"  class="sidenav sidenav-fixed">
+        <nav class="purple">
+            <div class="nav-wrapper"></div>
+        </nav>
+
+        <div id="movieList" class="collection">
+            
+        </div>
+
+    </ul>
+
+    <div class="container row" id="content">
+
+<style>
+    aside{
+        overflow-y: scroll;
+    }
+
+    body {
+      padding-left: 300px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      body {
+        padding-left: 0;
+      }
+    }
+         
+</style>
+
+    <main class="col">
+        
+            <div class="row">
+                <h1 id="movieTitle"></h1>
+            </div>
+
+            <div class="row" id="movieDetail">
+              <h1>Select A Movie</h1>
+            </div>
+        
+       
+     
     </main>
-   
 
     <script>
 
-        const domain = "https://pokedextr.herokuapp.com";
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+            getMovieList();
+        });
+
+
 
         async function sendRequest(url, method, data){
             const options = {method};
-            
+            const server = 'https://dcitmovieapi.herokuapp.com';
             if(data){
                 options.body = JSON.stringify(data);
                 options.headers = {'Content-Type':'application/json'};
             }
-            let response = await fetch(url, options);
+            let response = await fetch(server+url, options);
             return response.json();
         }
 
-        async function getPokemonDetail(pokemonName){
-            //performs http request to the specified url with the given pokemon name to get pokemon data then pass it to displayPokemonDetail()
+
+
+        function displayMovieList(movies){
+ 
         }
 
-        async function getAllPokemon(){
-            //performs http request to the specified url to get all pokemon data then pass it to displayPokemon()
+        async function getMovieList(){
+  
         }
 
-        function displayAllPokemon(pokeList){
-           //Renders a list of pokemon links to the page from the pokeList array 
+        function displayMovie(movie){
+
         }
 
-        function displayPokemonDetail(pokemon){
-          //renders details of the specified pokemon object onto the page
+        async function getMovie(id){
+
         }
 
-        getAllPokemon();
-       
     </script>
-        
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
